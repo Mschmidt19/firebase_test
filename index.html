@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+  </head>
+  <body>
+    <div>
+      <h1>Sample Listings</h1>
+      <textarea id="listingTitle" placeholder="Enter title..."></textarea>
+      <textarea id="listingPhoneNumber" placeholder="Enter phone number..."></textarea>
+      <button id="submitButton" onclick="addListing()">Submit</button>
+    </div>
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.2.0/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBkwysCw8DTqzmb7gDMZmDKpzErkgMQLEw",
+        authDomain: "fir-test-6fce7.firebaseapp.com",
+        databaseURL: "https://fir-test-6fce7.firebaseio.com",
+        projectId: "fir-test-6fce7",
+        storageBucket: "fir-test-6fce7.appspot.com",
+        messagingSenderId: "961827197012"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="src/test.js"></script>
+  </body>
+</html>
