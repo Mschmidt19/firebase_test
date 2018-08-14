@@ -7,8 +7,8 @@ var db = firebase.firestore();
 
 function addListing() {
 
-  var titleText = document.getElementById('listingTitle').value;
-  var phoneNumber = document.getElementById('listingPhoneNumber').value;
+  const titleText = document.querySelector("#listingTitle").value;
+  const phoneNumber = document.querySelector("#listingPhoneNumber").value;
 
   // Add a new document in collection "cities"
   db.collection("Listings").doc().set({
@@ -23,3 +23,19 @@ function addListing() {
   });
 
 }
+
+const list_div = document.querySelector("#list-div");
+
+db.collection("Listings").onSnapshot(function(querySnapshot) {
+
+    querySnapshot.docChanges().forEach(function(change) {
+
+      if(change.type === "added") {
+
+        list_div.innerHTML += "<div class='list-item'><h3>" + change.doc.data().title + "</h3><p>Phone Number: " + change.doc.data().phone_number + "</p></div>"
+
+      }
+
+    });
+
+});
